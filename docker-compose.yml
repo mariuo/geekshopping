@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    
+      mysql57:
+        container_name: mysql57
+        image: mysql:5.7
+        restart: always
+        volumes:
+            - ./data/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: dbdonet
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+        ports:
+            - "3306:3306"
+        networks:
+            - mysql_network
+
+networks:
+    mysql_network:
+        driver: bridge
