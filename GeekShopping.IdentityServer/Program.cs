@@ -1,8 +1,11 @@
+using Duende.IdentityServer.AspNetIdentity;
+using Duende.IdentityServer.Services;
 using GeekShopping.IdentityServer.Configuration;
 using GeekShopping.IdentityServer.Initializer;
 using GeekShopping.IdentityServer.Initiatilizer;
 using GeekShopping.IdentityServer.Model;
 using GeekShopping.IdentityServer.Model.Context;
+using GeekShopping.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +15,7 @@ var connection = builder.Configuration["MySqlConnection:MySqlConnectionString"];
 
 builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql(
     connection,
-    new MySqlServerVersion(new Version(5, 7, 0)))
+    new MySqlServerVersion(new Version(8, 0, 29)))
 );
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -33,7 +36,7 @@ var builderServices = builder.Services.AddIdentityServer(options =>
     .AddAspNetIdentity<ApplicationUser>();
 
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
-//builder.Services.AddScoped<IProfileService, ProfileService>();
+builder.Services.AddScoped<IProfileService, ProfileService>();
 
 builderServices.AddDeveloperSigningCredential();
 
