@@ -1,4 +1,6 @@
-﻿namespace GeekShopping.CartAPI.Model
+﻿#nullable disable
+
+namespace GeekShopping.CartAPI.Model
 {
     public class Cart
     {

@@ -4,11 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-<<<<<<< HEAD
-=======
-#nullable disable
-
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
 namespace GeekShopping.CartAPI.Migrations
 {
     [DbContext(typeof(MySQLContext))]
@@ -18,13 +13,8 @@ namespace GeekShopping.CartAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-<<<<<<< HEAD
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "6.0.0-preview.6.21352.1");
-=======
-                .HasAnnotation("ProductVersion", "6.0.13")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
 
             modelBuilder.Entity("GeekShopping.CartAPI.Model.CartDetail", b =>
                 {
@@ -60,18 +50,10 @@ namespace GeekShopping.CartAPI.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CouponCode")
-<<<<<<< HEAD
-=======
-                        .IsRequired()
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                         .HasColumnType("longtext")
                         .HasColumnName("coupon_code");
 
                     b.Property<string>("UserId")
-<<<<<<< HEAD
-=======
-                        .IsRequired()
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                         .HasColumnType("longtext")
                         .HasColumnName("user_id");
 
@@ -87,28 +69,17 @@ namespace GeekShopping.CartAPI.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CategoryName")
-<<<<<<< HEAD
-=======
-                        .IsRequired()
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("category_name");
 
                     b.Property<string>("Description")
-<<<<<<< HEAD
-=======
-                        .IsRequired()
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
+
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)")
                         .HasColumnName("description");
 
                     b.Property<string>("ImageURL")
-<<<<<<< HEAD
-=======
-                        .IsRequired()
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                         .HasMaxLength(300)
                         .HasColumnType("varchar(300)")
                         .HasColumnName("image_url");

@@ -1,10 +1,9 @@
+#nullable disable
+
 using AutoMapper;
 using GeekShopping.CartAPI.Config;
 using GeekShopping.CartAPI.Model.Context;
-<<<<<<< HEAD
 using GeekShopping.CartAPI.Repository;
-=======
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -23,11 +22,7 @@ IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-<<<<<<< HEAD
 builder.Services.AddScoped<ICartRepository, CartRepository>();
-=======
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -91,11 +86,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-<<<<<<< HEAD
-//app.UseRouting();
-=======
 app.UseRouting();
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
 
 app.UseAuthentication();
 

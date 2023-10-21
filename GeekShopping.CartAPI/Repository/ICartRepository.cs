@@ -1,4 +1,6 @@
-﻿using GeekShopping.CartAPI.Data.ValueObjects;
+﻿#nullable disable
+
+using GeekShopping.CartAPI.Data.ValueObjects;
 
 namespace GeekShopping.CartAPI.Repository
 {

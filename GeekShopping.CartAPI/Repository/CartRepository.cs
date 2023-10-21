@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#nullable disable
+
+using AutoMapper;
 using GeekShopping.CartAPI.Data.ValueObjects;
 using GeekShopping.CartAPI.Model;
 using GeekShopping.CartAPI.Model.Context;
@@ -113,21 +115,13 @@ namespace GeekShopping.CartAPI.Repository
                 //If CartHeader is not null
                 //Check if CartDetails has same product
                 var cartDetail = await _context.CartDetails.AsNoTracking().FirstOrDefaultAsync(
-<<<<<<< HEAD
                     p => p.ProductId == cart.CartDetails.FirstOrDefault().ProductId &&
-=======
-                    p => p.ProductId == vo.CartDetails.FirstOrDefault().ProductId &&
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                     p.CartHeaderId == cartHeader.Id);
 
                 if (cartDetail == null)
                 {
                     //Create CartDetails
-<<<<<<< HEAD
                     cart.CartDetails.FirstOrDefault().CartHeaderId = cartHeader.Id;
-=======
-                    cart.CartDetails.FirstOrDefault().CartHeaderId = cart.CartHeader.Id;
->>>>>>> 3336f885dc99881d5ffbace883ae37379cd4c15e
                     cart.CartDetails.FirstOrDefault().Product = null;
                     _context.CartDetails.Add(cart.CartDetails.FirstOrDefault());
                     await _context.SaveChangesAsync();

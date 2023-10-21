@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿#nullable disable
+
+using AutoMapper;
 using GeekShopping.CartAPI.Data.ValueObjects;
 using GeekShopping.CartAPI.Model;
 

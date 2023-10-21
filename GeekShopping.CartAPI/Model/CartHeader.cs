@@ -1,4 +1,6 @@
-﻿using GeekShopping.CartAPI.Model.Base;
+﻿#nullable disable
+
+using GeekShopping.CartAPI.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekShopping.CartAPI.Model
