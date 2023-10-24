@@ -64,13 +64,14 @@ namespace GeekShopping.CartAPI.Controllers
             if (!status) return NotFound();
             return Ok(status);
         }
-        [HttpDelete("checkout")]
+        [HttpPost("checkout")]
         public async Task<ActionResult<CheckoutHeaderVO>> Checkout(CheckoutHeaderVO vo)
         {
+            if(vo?.UserId == null) return BadRequest();
             var cart = await _repository.FindCartByUserId(vo.UserId);
             if (cart == null) return NotFound();
             vo.CartDetails = cart.CartDetails;
-
+            vo.DateTime = DateTime.Now;
             //TASK RabbitMQ Logic
 
 
