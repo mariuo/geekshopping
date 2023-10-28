@@ -1,4 +1,6 @@
-﻿namespace GerekShopping.MessageBus
+﻿using System;
+
+namespace GerekShopping.MessageBus
 {
     public class BaseMessage
     {

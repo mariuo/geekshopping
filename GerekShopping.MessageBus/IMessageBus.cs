@@ -1,4 +1,6 @@
-﻿namespace GerekShopping.MessageBus
+﻿using System.Threading.Tasks;
+
+namespace GerekShopping.MessageBus
 {
     public interface IMessageBus
     {
