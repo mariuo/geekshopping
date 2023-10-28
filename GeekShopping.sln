@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.CouponAPI", "G
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{4D508618-97A0-43FD-8962-3751470CF2A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerekShopping.MessageBus", "GerekShopping.MessageBus\GerekShopping.MessageBus.csproj", "{8AA321D5-605F-4B10-9E46-ACD62C674362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerekShopping.MessageBus", "GerekShopping.MessageBus\GerekShopping.MessageBus.csproj", "{8AA321D5-605F-4B10-9E46-ACD62C674362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.OrderAPI", "GeekShopping.OrderAPI\GeekShopping.OrderAPI.csproj", "{8E313003-9BD9-4A11-81EC-A21BE7190233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{8AA321D5-605F-4B10-9E46-ACD62C674362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AA321D5-605F-4B10-9E46-ACD62C674362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AA321D5-605F-4B10-9E46-ACD62C674362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E313003-9BD9-4A11-81EC-A21BE7190233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E313003-9BD9-4A11-81EC-A21BE7190233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E313003-9BD9-4A11-81EC-A21BE7190233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E313003-9BD9-4A11-81EC-A21BE7190233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{D1D7B332-7644-4180-9BA4-0A55396DA8AE} = {19D84421-3EA8-467A-8A52-8927A3DDB43C}
 		{DB61A590-18B9-4ADA-9DB1-732FA67AB58F} = {19D84421-3EA8-467A-8A52-8927A3DDB43C}
 		{8AA321D5-605F-4B10-9E46-ACD62C674362} = {4D508618-97A0-43FD-8962-3751470CF2A2}
+		{8E313003-9BD9-4A11-81EC-A21BE7190233} = {19D84421-3EA8-467A-8A52-8927A3DDB43C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE8A6403-2CCF-4A75-BB41-8C772059F43E}
