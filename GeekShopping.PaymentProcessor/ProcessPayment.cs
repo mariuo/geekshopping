@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeekShopping.PaymentProcessor
 {
-    internal class ProcesssPayment : IProcessPayment
+    public class ProcessPayment : IProcessPayment
     {
         public bool PaymentProcessor()
         {
