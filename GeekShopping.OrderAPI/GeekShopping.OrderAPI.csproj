@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\GerekShopping.MessageBus\GerekShopping.MessageBus.csproj" />
+		<ProjectReference Include="..\GerekShopping.MessageBus\GeekShopping.MessageBus.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
