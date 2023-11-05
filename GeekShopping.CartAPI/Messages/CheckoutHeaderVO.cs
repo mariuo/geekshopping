@@ -1,5 +1,5 @@
 ﻿using GeekShopping.CartAPI.Data.ValueObjects;
-using GerekShopping.MessageBus;
+using GeekShopping.MessageBus;
 
 namespace GeekShopping.CartAPI.Messages
 {

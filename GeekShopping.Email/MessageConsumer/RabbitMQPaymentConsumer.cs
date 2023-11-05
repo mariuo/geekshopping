@@ -1,21 +1,22 @@
-﻿using GeekShopping.CartAPI.Repository;
-using GeekShopping.OrderAPI.Messages;
+﻿
+using GeekShopping.Email.Messages;
+using GeekShopping.Email.Repository;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace GeekShopping.OrderAPI.MessageConsumer
+namespace GeekShopping.Email.MessageConsumer
 {
     public class RabbitMQPaymentConsumer : BackgroundService
     {
-        private readonly OrderRepository _repository;
+        private readonly EmailRepository _repository;
         private IConnection _connection;
         private IModel _channel;
         private const string ExchangeName = "FanoutPaymentUpdateExchange";
         string queueName = "";
 
-        public RabbitMQPaymentConsumer(OrderRepository repository)
+        public RabbitMQPaymentConsumer(EmailRepository repository)
         {
             _repository = repository;
             var factory = new ConnectionFactory
@@ -39,19 +40,20 @@ namespace GeekShopping.OrderAPI.MessageConsumer
             consumer.Received += (chanel, evt) =>
             {
                 var content = Encoding.UTF8.GetString(evt.Body.ToArray());
-                UpdatePaymentResultVO vo = JsonSerializer.Deserialize<UpdatePaymentResultVO>(content);
-                UpdatePaymentStatus(vo).GetAwaiter().GetResult();
+                UpdatePaymentResultMessage message = JsonSerializer.Deserialize<UpdatePaymentResultMessage>(content);
+                ProcessLog(message).GetAwaiter().GetResult();
                 _channel.BasicAck(evt.DeliveryTag, false);
             };
             _channel.BasicConsume(queueName, false, consumer);
             return Task.CompletedTask;
         }
 
-        private async Task UpdatePaymentStatus(UpdatePaymentResultVO vo)
+        private async Task ProcessLog(UpdatePaymentResultMessage message)
         {
             try
             {
-                await _repository.UpdateOrderPaymentStatus(vo.OrderId, vo.Status);
+                await _repository.LogEmail(message);
+
             }
             catch (Exception)
             {
@@ -61,3 +63,4 @@ namespace GeekShopping.OrderAPI.MessageConsumer
         }
     }
 }
+

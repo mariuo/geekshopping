@@ -1,4 +1,6 @@
+using GeekShopping.Email.MessageConsumer;
 using GeekShopping.Email.Model.Context;
+using GeekShopping.Email.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -13,6 +15,15 @@ builder.Services.AddDbContext<MySQLContext>(options =>
     options.UseMySql(connection,
         new MySqlServerVersion(new Version(5, 7, 0)))
     );
+
+var dbContextOptionsBuilder = new DbContextOptionsBuilder<MySQLContext>();
+dbContextOptionsBuilder.UseMySql(connection,
+        new MySqlServerVersion(
+            new MySqlServerVersion(new Version(5, 7, 0))));
+builder.Services.AddSingleton(new EmailRepository(dbContextOptionsBuilder.Options));
+builder.Services.AddScoped<IEmailRepository, EmailRepository>();
+builder.Services.AddHostedService<RabbitMQPaymentConsumer>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
