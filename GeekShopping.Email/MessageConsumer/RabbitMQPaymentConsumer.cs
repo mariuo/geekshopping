@@ -16,7 +16,6 @@ namespace GeekShopping.Email.MessageConsumer
         private const string ExchangeName = "DirectPaymentUpdateExchange";
 
         private const string PaymentEmailUpdateQueueName = "PaymentEmailUpdateQueueName";
-        private const string PaymentOrderUpdateQueueName = "PaymentOrderUpdateQueueName";
 
         public RabbitMQPaymentConsumer(EmailRepository repository)
         {
@@ -32,7 +31,6 @@ namespace GeekShopping.Email.MessageConsumer
 
             _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
             _channel.QueueDeclare(PaymentEmailUpdateQueueName, false, false, false, null);
-            _channel.QueueDeclare(PaymentOrderUpdateQueueName, false, false, false, null);
 
             _channel.QueueBind(PaymentEmailUpdateQueueName, ExchangeName, "PaymentEmail");
         }
